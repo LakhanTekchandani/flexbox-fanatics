@@ -33,7 +33,7 @@ export function Closing() {
             </p>
             <div className="md:col-span-4 md:col-start-9 md:text-right">
               <a
-                href="#atlas"
+                href="#overview"
                 className="group inline-flex items-center gap-4 bg-accent px-8 py-4 text-[0.72rem] font-medium tracking-[0.2em] text-accent-foreground uppercase transition-transform duration-500 hover:-translate-y-0.5"
               >
                 Explore the Atlas
