@@ -93,7 +93,7 @@ export function Hero() {
 
         <motion.div
           style={{ opacity: fade }}
-          className="relative lg:col-span-5 lg:-mt-14"
+          className="relative lg:col-span-5 lg:mt-10"
           initial={{ clipPath: "inset(100% 0 0 0)" }}
           animate={{ clipPath: "inset(0% 0 0 0)" }}
           transition={{ duration: 1.4, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
