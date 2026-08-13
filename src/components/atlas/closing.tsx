@@ -18,7 +18,7 @@ export function Closing() {
         </motion.div>
 
         <div className="relative mx-auto max-w-[1600px] px-6 py-28 md:px-10 md:py-40">
-          <p className="eyebrow text-accent">08 — The journey continues</p>
+          <p className="eyebrow text-accent">02 — The journey continues</p>
           <h2 className="display mt-10 text-[clamp(2.75rem,9vw,8rem)]">
             <RevealLines lines={["EXPLORE INDIA.", "ONE STORY AT A TIME."]} />
           </h2>
