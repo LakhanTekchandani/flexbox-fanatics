@@ -3,9 +3,9 @@ import { cn } from "@/lib/utils";
 
 const LINKS = [
   { label: "Explore", href: "#overview" },
-  { label: "States", href: "#atlas" },
-  { label: "Culture", href: "#culture" },
-  { label: "Heritage", href: "#heritage" },
+  { label: "States", href: "#overview" },
+  { label: "Culture", href: "#overview" },
+  { label: "Heritage", href: "#overview" },
 ];
 
 export function AtlasNav() {
