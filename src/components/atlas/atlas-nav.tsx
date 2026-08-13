@@ -53,7 +53,7 @@ export function AtlasNav() {
         </ul>
 
         <a
-          href="#atlas"
+          href="#overview"
           className="group inline-flex items-center gap-3 border border-border-strong px-4 py-2 text-[0.7rem] font-medium tracking-[0.18em] uppercase transition-colors hover:border-foreground hover:bg-foreground hover:text-background"
         >
           Explore Atlas

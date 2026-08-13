@@ -65,7 +65,7 @@ export function Hero() {
             className="mt-12 flex flex-wrap items-center gap-8"
           >
             <a
-              href="#atlas"
+              href="#overview"
               className="group inline-flex items-center gap-4 bg-foreground px-7 py-4 text-[0.72rem] font-medium tracking-[0.2em] text-background uppercase transition-colors hover:bg-accent hover:text-accent-foreground"
             >
               Explore the Atlas
