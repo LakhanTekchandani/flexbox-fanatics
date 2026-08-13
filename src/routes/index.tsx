@@ -4,13 +4,18 @@ import { AtlasNav } from "@/components/atlas/atlas-nav";
 import { GlobeIntro } from "@/components/atlas/globe-intro";
 import { Hero } from "@/components/atlas/hero";
 import { IntroSection } from "@/components/atlas/intro-section";
+import { AtlasMap } from "@/components/atlas/atlas-map";
+import { StateExplorer } from "@/components/atlas/state-explorer";
+import { Culture } from "@/components/atlas/culture";
+import { Heritage } from "@/components/atlas/heritage";
+import { Numbers } from "@/components/atlas/numbers";
 import { Closing } from "@/components/atlas/closing";
 
 const title = "The India Atlas — Explore India, One Story at a Time";
 const description =
   "A premium interactive visual atlas of India: 28 states, 8 union territories, and the landscapes, culture and heritage that define each region.";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/")(  {
   head: () => ({
     meta: [
       { title },
@@ -52,6 +57,11 @@ function Index() {
           <main>
             <Hero />
             <IntroSection />
+            <AtlasMap />
+            <StateExplorer />
+            <Culture />
+            <Heritage />
+            <Numbers />
             <Closing />
           </main>
         </>
