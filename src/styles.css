@@ -78,6 +78,14 @@
   --ring: oklch(0.685 0.155 52);
 
   --shadow-lift: 0 24px 60px -32px oklch(0.2 0.02 60 / 0.35);
+
+  /* globe intro (canvas needs resolvable color strings) */
+  --globe-ocean: oklch(0.9 0.018 230);
+  --globe-land: oklch(0.855 0.026 82);
+  --globe-border: oklch(0.7 0.02 78);
+  --globe-grid: oklch(0.86 0.012 230);
+  --globe-accent: oklch(0.685 0.155 52);
+  --globe-rim: oklch(0.66 0.02 70);
 }
 
 @theme inline {
