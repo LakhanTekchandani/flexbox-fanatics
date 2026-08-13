@@ -1,17 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { AtlasNav } from "@/components/atlas/atlas-nav";
+import { GlobeIntro } from "@/components/atlas/globe-intro";
 import { Hero } from "@/components/atlas/hero";
-import { Overview } from "@/components/atlas/overview";
-import { AtlasMap } from "@/components/atlas/atlas-map";
-import { StateExplorer } from "@/components/atlas/state-explorer";
-import { Culture } from "@/components/atlas/culture";
-import { Heritage } from "@/components/atlas/heritage";
-import { Numbers } from "@/components/atlas/numbers";
+import { IntroSection } from "@/components/atlas/intro-section";
 import { Closing } from "@/components/atlas/closing";
 
 const title = "The India Atlas — Explore India, One Story at a Time";
 const description =
-  "An interactive visual atlas of India: 28 states, 8 union territories, and the landscapes, culture and heritage that define each region.";
+  "A premium interactive visual atlas of India: 28 states, 8 union territories, and the landscapes, culture and heritage that define each region.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -28,19 +25,37 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const [introDone, setIntroDone] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  // Keep the page pinned at the top while the opening plays.
+  useEffect(() => {
+    if (!mounted || introDone) return;
+    window.scrollTo(0, 0);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [mounted, introDone]);
+
+  const showSite = !mounted || introDone;
+
   return (
     <>
-      <AtlasNav />
-      <main>
-        <Hero />
-        <Overview />
-        <AtlasMap />
-        <StateExplorer />
-        <Culture />
-        <Heritage />
-        <Numbers />
-        <Closing />
-      </main>
+      {mounted && !introDone && <GlobeIntro onDone={() => setIntroDone(true)} />}
+      {showSite && (
+        <>
+          <AtlasNav />
+          <main>
+            <Hero />
+            <IntroSection />
+            <Closing />
+          </main>
+        </>
+      )}
     </>
   );
 }

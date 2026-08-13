@@ -18,7 +18,7 @@ export function Closing() {
         </motion.div>
 
         <div className="relative mx-auto max-w-[1600px] px-6 py-28 md:px-10 md:py-40">
-          <p className="eyebrow text-accent">08 — The journey continues</p>
+          <p className="eyebrow text-accent">02 — The journey continues</p>
           <h2 className="display mt-10 text-[clamp(2.75rem,9vw,8rem)]">
             <RevealLines lines={["EXPLORE INDIA.", "ONE STORY AT A TIME."]} />
           </h2>
@@ -33,7 +33,7 @@ export function Closing() {
             </p>
             <div className="md:col-span-4 md:col-start-9 md:text-right">
               <a
-                href="#atlas"
+                href="#overview"
                 className="group inline-flex items-center gap-4 bg-accent px-8 py-4 text-[0.72rem] font-medium tracking-[0.2em] text-accent-foreground uppercase transition-transform duration-500 hover:-translate-y-0.5"
               >
                 Explore the Atlas
