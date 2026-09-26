@@ -5,5 +5,9 @@ import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import netlify from "@netlify/vite-plugin-tanstack-start";
 
 export default defineConfig({
+  resolve: {
+    // Vite 8: resolve the `@/*` alias declared in tsconfig.json
+    tsconfigPaths: true,
+  },
   plugins: [tanstackStart(), netlify(), react(), tailwindcss()],
 });

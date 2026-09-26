@@ -15,7 +15,10 @@ const title = "The India Atlas — Explore India, One Story at a Time";
 const description =
   "A premium interactive visual atlas of India: 28 states, 8 union territories, and the landscapes, culture and heritage that define each region.";
 
-export const Route = createFileRoute("/")(  {
+/** Session-scoped flag: the opening only plays on first entry of a browser session. */
+const INTRO_SEEN_KEY = "india-atlas-intro-seen";
+
+export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title },
@@ -33,7 +36,25 @@ function Index() {
   const [introDone, setIntroDone] = useState(false);
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    // The opening is an entry experience: skip it if the session already saw it.
+    // Checked before `mounted` flips so GlobeIntro never mounts on remounts.
+    try {
+      if (sessionStorage.getItem(INTRO_SEEN_KEY)) setIntroDone(true);
+    } catch {
+      // Storage unavailable — fall back to playing the intro.
+    }
+    setMounted(true);
+  }, []);
+
+  const handleIntroDone = () => {
+    try {
+      sessionStorage.setItem(INTRO_SEEN_KEY, "1");
+    } catch {
+      // Ignore quota / privacy-mode errors.
+    }
+    setIntroDone(true);
+  };
 
   // Keep the page pinned at the top while the opening plays.
   useEffect(() => {
@@ -50,7 +71,7 @@ function Index() {
 
   return (
     <>
-      {mounted && !introDone && <GlobeIntro onDone={() => setIntroDone(true)} />}
+      {mounted && !introDone && <GlobeIntro onDone={handleIntroDone} />}
       {showSite && (
         <>
           <AtlasNav />
